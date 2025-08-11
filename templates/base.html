@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}AI Resume Analyzer{% endblock %}</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  {% block head %}{% endblock %}
+</head>
+<body class="min-h-screen bg-gradient-to-tr from-indigo-700 via-purple-700 to-pink-600 flex flex-col items-center justify-center">
+
+  <div class="w-full max-w-4xl px-3 py-10">
+    {% if step %}
+    <div class="mb-8">
+      <div class="w-full bg-purple-300 rounded-full h-4">
+        <div class="bg-purple-800 h-4 rounded-full transition-all" style="width: {{ (step / 4) * 100 }}%"></div>
+      </div>
+      <p class="text-center mt-2 text-white font-semibold">Step {{ step }} of 4</p>
+    </div>
+    {% endif %}
+    <main class="bg-white rounded-3xl shadow-xl p-10">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>
